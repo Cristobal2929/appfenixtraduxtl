@@ -14,7 +14,6 @@ import android.graphics.Point
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.os.IBinder
 import android.provider.Settings
 import android.speech.RecognitionListener
@@ -23,7 +22,6 @@ import android.speech.SpeechRecognizer
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -43,11 +41,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 import java.io.IOException
-import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,7 +62,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Simple binding for the empty activity layout
         setContentView(R.layout.activity_main)
 
         if (!Settings.canDrawOverlays(this)) {
@@ -204,6 +201,13 @@ class MainActivity : AppCompatActivity() {
                 setTabTextColors(Color.LTGRAY, Color.WHITE)
                 addTab(newTab().setText("\uD83C\uDF33 Voz"))
                 addTab(newTab().setText("\uD83D\uDCDD Texto"))
+            }
+            // Fixed: use tabLayout.newTab()
+            tabLayout = TabLayout(this).apply {
+                setSelectedTabIndicatorColor(Color.WHITE)
+                setTabTextColors(Color.LTGRAY, Color.WHITE)
+                addTab(this.newTab().setText("\uD83C\uDF33 Voz"))
+                addTab(this.newTab().setText("\uD83D\uDCDD Texto"))
             }
             panelView?.addView(tabLayout)
 
