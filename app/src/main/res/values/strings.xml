@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFenixtraduxtl</string>
+    <string name="permission_needed_title">Permiso necesario</string>
+    <string name="permission_needed_message">La aplicación necesita el permiso “Mostrar sobre otras apps” para funcionar.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="listen">▶ Escuchar</string>
+    <string name="translate">Traducir</string>
+    <string name="copy_result">Copiar resultado</string>
+    <string name="enter_french_text">Introduce texto en francés</string>
+    <string name="empty_input">El texto no puede estar vacío</string>
+    <string name="translating">Traduciendo...</string>
+    <string name="translation_failed">Error al traducir</string>
+    <string name="speech_error">Error de reconocimiento</string>
+</resources>
